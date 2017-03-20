@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量提升1</title>
+</head>
+<body>
+<script>
+var foo = function(){
+	console.log(1)
+}
+function foo(){
+	console.log(2)
+}
+
+function boo(){
+	console.log(2)
+}
+var boo = function(){
+	console.log(1)
+}
+
+foo();//1
+boo();
+</script>
+</body>
+</html>
