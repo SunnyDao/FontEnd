@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>shadowCopy</title>
+</head>
+<body>
+<script>
+var obj = { a:1, arr: [2,3] };
+var obj2 = obj;
+var shadowObj = shadowCopy(obj);
+
+function shadowCopy(src) {
+  var dst = {};
+  for (var prop in src) {
+    if (src.hasOwnProperty(prop)) {
+      dst[prop] = src[prop];
+    }
+  }
+  return dst;
+}
+
+obj2.a = 2;
+obj2.arr[1]=1;
+console.log(obj,shadowObj)
+
+
+</script>
+</body>
+</html>
