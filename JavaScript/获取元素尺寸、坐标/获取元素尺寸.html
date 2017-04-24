@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	.test{
+		width: 100px;
+		height: 100px;
+		padding: 10px;
+		border: 1px solid #ddd;
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body>
+<div class="test"></div>
+
+<script>
+var dom = document.getElementsByClassName('test')[0];
+
+console.log('styleHeight:'+dom.style.height) //''
+console.log('offsetHeight:'+dom.offsetHeight) // 122
+
+</script>
+</body>
+</html>

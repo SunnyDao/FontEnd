@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深拷贝</title>
+</head>
+<body>
+<h2>最简单的深拷贝</h2>
+<p>b = JSON.parse( JSON.stringify(a) )</p>
+<script>
+var obj={
+	age:18,
+	name:'Tom',
+	tag:[1,2,3,4,5],
+	getAge:function(){
+		console.log(this.age);
+		return this.age;
+	}
+};
+var arr = [1,2,3,4,5];
+
+function type(obj) {
+	var toString = Object.prototype.toString;
+	var map = {
+	    '[object Boolean]'  : 'boolean', 
+	    '[object Number]'   : 'number', 
+	    '[object String]'   : 'string', 
+	    '[object Function]' : 'function', 
+	    '[object Array]'    : 'array', 
+	    '[object Date]'     : 'date', 
+	    '[object RegExp]'   : 'regExp', 
+	    '[object Undefined]': 'undefined',
+	    '[object Null]'     : 'null', 
+	    '[object Object]'   : 'object'
+	};
+	return map[toString.call(obj)];
+}
+
+//简单的复制一个对象
+function cloneObj(obj){
+    var str, newobj = obj.constructor === Array ? [] : {};
+    if(typeof obj !== 'object' || obj===null ){
+        return obj;
+    }else {
+        for(var i in obj){
+        	if(obj[i] === obj) {//处理内部引用
+				continue;
+			}
+            newobj[i] = typeof obj[i] === 'object' ? 
+            cloneObj(obj[i]) : obj[i]; 
+        }
+    }
+    return newobj;
+};
+//内部引用
+function extend(obj,deep){
+	if(obj === null || typeof obj !== "object"){ 
+ 		return obj; 
+	} 　　　　　
+	var name, target = Array.isArray(obj) ? [] : {}, value; 
+	for(name in obj){ 
+		value = obj[name]; 
+		if(value === obj) {
+			continue;
+		}
+		if(deep && typeof value ==='obj'){//($.isArray(value) || $.isObject(value))
+			target[name] = extend(value,deep);
+		}else{
+			target[name] = value;
+		} 
+	} 
+	return target;
+}
+
+var newDeepObj = extend({test:'test'},obj);
+var newDeepObj2 = extend(obj);
+
+obj['aaaaaaa']=obj;
+
+var new_obj = cloneObj(obj);
+
+console.log(new_obj)
+
+
+function Person(){
+	this.name='2b';
+	this.age = '18';
+}
+Person.prototype.getName = function() {
+	console.log(this.name);
+	return this.name;
+};
+var person = new Person();
+
+var new_person = cloneObj(person)
+</script>
+</body>
+</html>

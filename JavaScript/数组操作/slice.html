@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+slice和splice都返回新的数组
+<br>
+slice不改变原来的数组
+<br>
+splice改变原来的数组
+
+<script>
+var arr = [1,2,3,4,5,6,7];
+
+
+var new_arr1 = arr.slice(0);//可以实现简单的拷贝
+var new_arr2 = arr.slice(1);
+var new_arr3 = arr.slice(2,4);
+var new_arr4 = arr.slice(2,-1);
+
+
+console.log(new_arr1) 
+console.log(new_arr2)
+console.log(new_arr3)
+console.log(new_arr4)
+
+
+var splice_arr = arr.splice(2,4);
+console.log(splice_arr,arr)
+</script>
+</body>
+</html>

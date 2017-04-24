@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+var str = 'a "witch" and her "broom" is one';
+var a = str.match(/".*"/g);//贪婪模式
+var b = str.match(/".*?"/g);//非贪婪模式
+
+
+var str2 = 'abbbbb';
+var a2 = str2.match(/ab*b/g);//abbbbb
+var b2 = str2.match(/ab*?b/g);//ab
+var c2 = str2.match(/ab+b/g);//abbbbb
+var d2 = str2.match(/ab+?b/g);//abb
+
+</script>
+</body>
+</html>

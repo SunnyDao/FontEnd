@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深拷贝</title>
+</head>
+<body>
+<h2>最简单的深拷贝</h2>
+<p>b = JSON.parse( JSON.stringify(a) )</p>
+<script>
+var obj={
+	age:18,
+	name:'Tom',
+	tag:[1,2,3,4,5],
+	getAge:function(){
+		console.log(this.age);
+		return this.age;
+	}
+};
+var arr = [1,2,3,4,5];
+
+//并不太好,只能处理标准格式化的JSON
+function eastDeepCopy(obj){
+	return JSON.parse( JSON.stringify(obj));
+}
+function deepCopy(target, source){ 
+    if( !source || typeof source !== 'object'){ 
+        return;
+    }
+    if( !target || typeof target !== 'object'){
+        return; 
+    }  
+    for(var key in source){
+        if(source.hasOwnProperty(key)){
+            if( source[key] && typeof source[key] == 'object'){
+               target[key] = Array.isArray(source[key])? []:{};
+               target[key] = deepCopy(target[key], source[key]);
+            } 
+            else{
+               target[key] = source[key];
+            }    
+        }    
+    }
+    return  target;
+}
+
+var newObj = eastDeepCopy(obj);
+var newArr = eastDeepCopy(arr);
+
+var newDeepObj = deepCopy({test:'test'},obj);
+var newDeepObj2 = deepCopy(obj);
+
+</script>
+</body>
+</html>

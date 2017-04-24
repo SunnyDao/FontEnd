@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+<br>
+slice和splice都返回新的数组
+<br>
+slice不改变原来的数组
+<br>
+splice改变原来的数组
+<br>
+
+<script>
+var arr = [1,2,3,4,5,6,7];
+
+var new_arr1 = arr.slice(0);
+var new_arr2 = arr.slice(2,4);
+var new_arr3 = arr.slice(2,-1);
+
+console.log(new_arr1,arr) 
+console.log(new_arr2)
+console.log(new_arr3)
+
+var splice_arr = arr.splice(2,2,3);
+console.log(splice_arr,arr)
+</script>
+</body>
+</html>

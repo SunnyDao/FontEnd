@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+function Person(){
+	this.name='2b';
+	this.age = '18';
+}
+Person.prototype.getName = function() {
+	console.log(this.name);
+	return this.name;
+};
+var person = new Person();
+for(var i in person){
+	console.log(i+'的值是：'+person[i])
+}
+</script>
+</body>
+</html>
