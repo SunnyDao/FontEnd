@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h2>这个方法接收两个必须的参数：</h2>
+<h4>pattern: 这个参数可以是字符串或是RegExp对象</h4>
+<h4>replacement： 替换匹配项的字符串或处理函数的返回值</h4>
+1  当未找到匹配项的时候，返回原始字符串。<br>
+	'aaaa'.replace('bbb', 'b')     //"aaaa" <br><br><br>
+
+2  当pattern为字符串或者为非全局的RegExp对象的时候，只替换找到的第一项匹配项。<br>
+	'aaaa'.replace('a', 'b')     //"baaa"<br>
+    'aaaa'.replace(/\w/, 'b')    //"baaa"<br><br><br>
+3  当pattern为全局的RegExp对象的时候，替换每一项匹配项。<br>
+	'aaaa'.replace(/\w/g, 'b')    //"bbbb"<br><br><br>
+
+1	replacement：为函数时：<br>
+	'aaaa'.replace(/\w/g, function() {<br>
+	    return 'b';<br>
+	}); // "bbbb"<br><br>
+
+	'aaaa'.replace(/\w/g, function(value) {<br>
+	    return value.toUpperCase();<br>
+	}); // "AAAA"<br><br><br>
+
+1、2、...、$99	与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。<br>
+$&	与 regexp 相匹配的子串<br>
+$`	位于匹配子串左侧的文本<br>
+$'	位于匹配子串右侧的文本<br>
+$$	直接量符号<br>
+<script>
+'aa11AA'.replace(/([a-z]+)(\d+)([A-Z]+)/g, '$1'); // "aa"
+'aa11AA'.replace(/([a-z]+)(\d+)([A-Z]+)/g, '$2'); // "11"
+'aa11AA'.replace(/([a-z]+)(\d+)([A-Z]+)/g, '$3'); // "AA"
+    //猜想 如果是 $4 回事什么呢？ undefined ? 
+    'aa11AA'.replace(/([a-z]+)(\d+)([A-Z]+)/g, '$4'); // "$4"
+    //所以，要是没有该子项，则当成普通字符串处理了
+    
+//第二种情况：
+'aa11AA'.replace(/([a-z]+)(\d+)([A-Z]+)/g, '$&'); //"aa11AA"
+
+//第三种情况：
+'aa11AA'.replace(/(\d+)/g, '$`'); //"aaaaAA"
+
+//第四种情况：
+'aa11AA'.replace(/(\d+)/g, "$'"); //"aaAAAA"
+
+//第五种情况：
+'aa11AA'.replace(/(\d+)/g, '$$'); //"aa$AA"
+
+'aaa bbb ccc'.replace(/\b\w+\b/g, function(word,key,arr){
+  	return word.substring(0,1).toUpperCase()+word.substring(1);}
+);
+'aa11AA'.replace(/([a-z]+)(\d+)([A-Z]+)/g, function(key,index,str){
+	return key
+});
+</script>
+</body>
+</html>

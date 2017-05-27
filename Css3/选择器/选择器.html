@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.div1{
+	margin-bottom: 20px;
+}
+.div1 > div,
+.div2 > div{
+	height: 30px;
+	border:1px solid #ddd;
+	padding-left: 5px;
+	line-height: 30px;
+}
+
+
+/* div:nth-child(2){
+	background: #e4e4e4;
+}
+
+div:nth-child(3n){
+	background: #e4e4e4;
+}
+ */
+.div1 > div:nth-child(-n+5){
+	background: #e4e4e4;
+}
+.div2 > div:nth-child(2n-1){
+	background: #e4e4e4;
+}
+
+</style>
+</head>
+<body>
+<div class="div1">
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+	<div>1</div>
+</div>
+<div class="div2">
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+	<div>2</div>
+</div>
+</body>
+</html>

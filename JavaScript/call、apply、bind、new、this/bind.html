@@ -5,7 +5,15 @@
 	<title>bind实现</title>
 </head>
 <body>
-<script></script>
+<script>
+Function.prototype.bind = function(contxt) {
+	var fn = this;
+	var arg = Array.prototype.slice.call(argument,1);
+	return function(){
+		return fn.apply(contxt,arg)
+	}
+};
+</script>
 	
 </body>
 </html>

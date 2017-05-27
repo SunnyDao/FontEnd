@@ -5,22 +5,78 @@
 	<title>Document</title>
 <style>
 	.test{
-		width: 100px;
-		height: 100px;
+		float: left;
 		padding: 10px;
-		border: 1px solid #ddd;
 		margin: 0 auto;
+		border: 1px solid #000;
+		background: ;
+	}
+	.test>.test2{
+		width: 300px;
+		height: 300px;
+		padding: 5px;
+		margin: 10px;
+		border: 5px solid #000;
+		background: ;
+	}
+	.scroll{
+		float: left;
+		padding: 10px;
+		width: 340px;
+		height: 340px;
+		margin: 0 0 0 50px;
+		border: 1px solid #000;
+		background: ;
+		overflow: auto;
+	}
+	.scroll .scroll2{
+		width: 600px;
+		height: 600px;
+		padding: 5px;
+		background: #ddd;
 	}
 </style>
 </head>
 <body>
-<div class="test"></div>
+<div class="test">
+	<div class="test2"></div>
+</div>
+
+<div class="scroll">
+	<div class="scroll2"></div>
+</div>
 
 <script>
-var dom = document.getElementsByClassName('test')[0];
+var dom = document.getElementsByClassName('test2')[0];
+
+var styleHeight = dom.style.height;
+var offsetHeight = dom.offsetHeight;
+var clientHeight = dom.clientHeight;
+var clientLeft = dom.clientLeft;
+
+dom.innerHTML+='styleHeight：  '+styleHeight+'<br>';
+dom.innerHTML+='offsetHeight：  '+offsetHeight+'<br>';
+dom.innerHTML+='clientHeight：  '+clientHeight+'<br>';
+dom.innerHTML+='clientLeft：  '+clientLeft+'<br>';
 
 console.log('styleHeight:'+dom.style.height) //''
 console.log('offsetHeight:'+dom.offsetHeight) // 122
+console.log('styleHeight:'+dom.clientHeight) //
+
+</script>
+<script>
+var div = document.getElementsByClassName('scroll')[0];
+var div2 = div.children[0];
+
+var offsetHeight = div.offsetHeight;
+var scrollHeight = div.scrollHeight;
+var clientHeight = div.clientHeight;
+var clientLeft = div.clientLeft;
+
+div2.innerHTML += 'offsetHeight：'+offsetHeight+'<br>';
+div2.innerHTML += 'scrollHeight：'+scrollHeight+'<br>';
+div2.innerHTML += 'clientHeight：'+clientHeight+'<br>';
+div2.innerHTML += 'clientLeft：  '+clientLeft+'<br>';
 
 </script>
 </body>

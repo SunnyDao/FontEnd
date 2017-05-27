@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script src="template.js"></script>
+<script>
+var str = 'hello,<%=name%>,i am <%=list[0].name%>';
+var obj = {
+		name:'world',
+		list:[{
+			name:'html'
+		},{
+			name:'css'
+		},{
+			name:'js'
+		}],
+		XSS:'<script>alert(\"XSS\")<\/script>',
+	}
+
+var tmp = Template(str,obj);
+
+document.write(tmp)
+
+
+</script>
+</body>
+</html>

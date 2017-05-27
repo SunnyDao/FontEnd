@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	div{
+		border: 1px solid #ddd;
+	}
+	#box1{
+		width: 100px;
+		height: 100px;
+		padding: 20px;
+	}
+	#box2{
+		width: 100%;
+		height: 100%;
+	}
+</style>
+</head>
+<body>
+<div id="box1">
+	<div id="box2">box2</div>
+</div>
+
+<script>
+var box1 = document.getElementById('box1');
+var box2 = document.getElementById('box2');
+
+/*box1.onclick = function() {
+  console.log('2. You click box1');
+};
+box2.onclick = function() {
+  console.log('1. You click box2');
+};
+document.onclick = function() {
+  console.log('3. You click document');
+};
+window.onclick = function() {
+  console.log('4. You click window');
+};*/
+
+box1.addEventListener('click', function() {
+  console.log('4. You 在捕获阶段 click box1');
+}, true);
+box2.addEventListener('click', function() {
+  console.log('4. You 在捕获阶段 click box2');
+}, true);
+document.addEventListener('click', function() {
+  console.log('4. You 在捕获阶段 click document');
+}, true);
+window.addEventListener('click', function() {
+  console.log('4. You 在捕获阶段 click window');
+}, true);
+
+box1.addEventListener('click', function() {
+  console.log('4. You 在冒泡阶段 click box1');
+}, false);
+box2.addEventListener('click', function() {
+  console.log('4. You 在冒泡阶段 click box2');
+}, false);
+document.addEventListener('click', function() {
+  console.log('4. You 在冒泡阶段 click document');
+}, false);
+window.addEventListener('click', function() {
+  console.log('4. You 在冒泡阶段 click window');
+}, false);
+
+</script>
+</body>
+</html>

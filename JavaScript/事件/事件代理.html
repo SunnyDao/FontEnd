@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul id = "ul">
+	<li>red</li>
+	<li>green</li>
+	<li>blue</li>
+	<li>yellow</li>
+</ul>
+<script>
+(function(){
+	var ul = document.getElementById('ul');
+	ul.addEventListener('click',showColot,false)
+	function showColot(e){
+		var x= e.target;
+		if(x.nodeName.toLowerCase()==='li'){
+			console.log(x.innerHTML)
+		}
+	}
+})()
+</script>
+</body>
+</html>

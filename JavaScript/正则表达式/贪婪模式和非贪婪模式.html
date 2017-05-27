@@ -18,6 +18,17 @@ var b2 = str2.match(/ab*?b/g);//ab
 var c2 = str2.match(/ab+b/g);//abbbbb
 var d2 = str2.match(/ab+?b/g);//abb
 
+
+var str3 = 'fooooooood';
+var a3 = str3.match(/o{1,3}/);
+var b3 = str3.match(/o{1,3}/g);//ooo,ooo,oo
+var c3 = str3.match(/o{1,3}?/g);//o,o,o,o,,o,o
+
+var str4 = 'fooooooood';
+var a4 = str4.replace(/o{1,3}/,'1');//f1oooood
+var b4 = str4.replace(/o{1,3}/g,'1');//f111d
+var c4 = str4.replace(/o{1,3}?/g,'1');//f11111111d
+
 </script>
 </body>
 </html>

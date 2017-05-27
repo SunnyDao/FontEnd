@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+var str ="width: 200px; position: absolute; top: 470px; left: 180px; color: rgb(255, 255, 255); fontSize: 23px; lineHeight: 33px;"
+
+var obj = {};
+var arr = str.split(';').slice(0,-1);
+//arr.splice(-1,1);
+arr.forEach(function(item) {
+	var newArr = item.split(':');
+	obj[newArr[0]]=newArr[1];
+})
+
+</script>	
+
+</body>
+</html>
