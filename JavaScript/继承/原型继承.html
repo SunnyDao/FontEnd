@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+function Parent(){
+    this.name = 'mike';
+}
+function Child(){
+    this.age = 12;
+}
+
+Child.prototype = new Parent();//Child继承Parent，通过原型，形成链条
+Child.prototype.constructor = Child;
+
+var test = new Child();
+alert(test.age);
+alert(test.name);//得到被继承的属性
+
+
+//继续原型链继承
+function Brother(){   //brother构造
+    this.weight = 60;
+}
+
+Brother.prototype = new Child();//继续原型链继承
+Brother.prototype.constructor = Brother;
+
+var brother = new Brother();
+alert(brother.name);//继承了Parent和Child,弹出mike
+alert(brother.age);//弹出12
+</script>
+	
+</body>
+</html>

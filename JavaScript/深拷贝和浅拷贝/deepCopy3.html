@@ -7,16 +7,16 @@
 <body>
 <script>
 (function() {
-   function _type(value) {
+    function _type(value) {
        return Object.prototype.toString.call(value).slice(8).slice(0, -1).toLowerCase();
-   }
-   function isArray(value) {
+    }
+    function isArray(value) {
        return _type(value) == 'array';
-   }
-   function isObject(value) {
+    }
+    function isObject(value) {
        return _type(value) == 'object';
-   }
-   function cloneArray(src, dest) {
+    }
+    function cloneArray(src, dest) {
        src.forEach(function(item, index) {
            if (isArray(item)) {
                console.log('yes')
@@ -26,32 +26,28 @@
                dest[index] = src[index];
            }
        });
-   }
-   function cloneObject(src, dest) {
-       for (var key in src) {
-           // filter 原型链上面的属性
-           if (src.hasOwnProperty(key)) {
-               if (isObject(src[key])) {
-                   // 判断循环引用的问题
-                   if (src[key] === src) {
-                       dest[key] = src;
-                   } else {
-                       dest[key] = {};
-                       copy(src[key], dest[key]);
-                   }
-               } else if (isArray(src[key])) {
-
-                   dest[key] = [];
-                   cloneArray(src[key], dest[key])
-
-
-               } else {
-                   dest[key] = src[key];
-
-               }
-           }
-       }
-   }
+    }
+    function cloneObject(src, dest) {
+        for (var key in src) {
+            // filter 原型链上面的属性
+            if (src.hasOwnProperty(key)) {
+                if (isObject(src[key])) {
+                    // 判断循环引用的问题
+                    if (src[key] === src) {
+                        dest[key] = src;
+                    } else {
+                        dest[key] = {};
+                        copy(src[key], dest[key]);
+                    }
+                } else if (isArray(src[key])) {
+                    dest[key] = [];
+                    cloneArray(src[key], dest[key])
+                } else {
+                    dest[key] = src[key];
+                }
+            }
+        }
+    }
     function cloneDeep(src) {
         if (isArray(src)) {
            var dest = [];

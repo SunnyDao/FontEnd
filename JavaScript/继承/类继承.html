@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+<script>
+function Parent(){
+	this.name = 'mike';
+	this.age = 30;
+	this.sex = 'man';
+}
+
+function Child(){
+	Parent.call(this);
+	this.age = 14;
+}
+
+var child = new Child();//{name: "mike", age: 14, sex: "man"}
+
+
+</script>
+</body>
+</html>

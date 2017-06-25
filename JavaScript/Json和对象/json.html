@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h2>JSON</h2>
+<p>1.仅仅是一种数据格式</p>
+<p>2、键值对;值不能为方法函数/undefined/NaN</p>
+<p>3、最后一个值后面不能有逗号 </p>
+<p>4、键必须加双引号;</p>
+<hr>
+<h2>javascript</h2>
+<p>1、对象的实例</p>
+<p>2、值可以是函数、对象、字符串、数字、boolean 等</p>
+<p>3、可以有逗号 </p>
+<p>4、可允许加单引号，双引号，也可以不加 </p>
+<hr>
+JSON 语法是 JavaScript 对象表示法语法的子集。
+
+<script>
+var str1 = '{"width":100,"height":200,"name":"rose"}';
+var str2='['+
+    '{"width":100,"height":200,"name":"rose"},'+
+    '{"width":100,"height":200,"name":"rose"},'+
+    '{"width":100,"height":200,"name":"rose"},'+
+']';
+//eval存在一定隐患
+var obj1 = eval("(" + str1 + ")");
+var obj2 = eval("(" + str2 + ")");  
+//所以对JSON格式的字符串可以用JSON.parse()
+var parse1 = JSON.parse(str1)
+
+</script>
+</body>
+</html>
