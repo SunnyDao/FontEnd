@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+var a=10,
+	b=20;
+function fn1(){
+	console.log(a)
+}
+function fn2(f){
+	var a =100;
+	f();
+}
+function fn(x){
+	var a = 100,
+		c = 300;
+	function bar(x){
+		var a = 1000,
+			d = 4000;
+	}
+	bar(100)
+	bar(200)
+}
+
+fn(10)
+fn2(fn1);
+</script>
+</body>
+</html>
