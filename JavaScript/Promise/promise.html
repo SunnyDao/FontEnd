@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+var p = new Promise(function(resolve,rejected){
+	setTimeout(resolve,1000,'+1s')
+})
+
+p.then(val => val)
+.then(function(val){
+	console.log(val+'?!')
+})
+
+
+</script>
+</body>
+</html>
